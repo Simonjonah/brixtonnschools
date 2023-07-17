@@ -1,0 +1,509 @@
+@include('dashboard.admin.header')
+
+  @include('dashboard.admin.sidebar')
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Upload </h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#" class="btn btn-success">Add</a></li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+
+              <li class="breadcrumb-item active">Upload  </li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+       
+          <!-- right column -->
+          <div class="col-md-12">
+            
+            <div class="card card-secondary">
+              <div class="card-header">
+                <h3 class="card-title">Certificate in Data Processing Course Uploads</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form action="{{ route('admin.createsinglecourse') }}" method="post" enctype="multipart/form-data">
+                  @csrf
+                  
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label> Course Title</label>
+                        <select name="course_title1" class="form-control">
+                          <option value="Introduction to Entrepreneurship">Introduction to Entrepreneurship</option>
+                          <option value="Element of Public Administration">Element of Public Administration</option>
+                          <option value="Business Mathematics">Business Mathematics</option>
+                          <option value="Introduction to Business">Introduction to Business</option>
+                          <option value="Principles of Economics 1">Principles of Economics 1</option>
+                          <option value="Principles of Accounts">Principles of Accounts</option>
+                          <option value="Basic Computing Skills">Basic Computing Skills</option>
+                          <option value="Computer APplication Packages 1">Computer APplication Packages 1</option>
+                          <option value="Internet and World wide web">Internet and World wide web</option>
+                          <option value="English Language and Communication Skills 1">English Language and Communication Skills 1</option>
+
+                        </select>
+                      </div>
+
+                      
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Course Code</label>
+                        <select name="course_code1" class="form-control">
+                          <option value="BMI 111">BMI 111</option>
+                          <option value="BMI 112">BMI 112</option>
+                          <option value="BMI 113">BMI 113</option>
+                          <option value="BMI 114">BMI 114</option>
+                          <option value="BMI 115">BMI 115</option>
+                          <option value="BMI 116">BMI 116</option>
+                          <option value="GST 111">GST 111</option>
+                          <option value="GST 113">GST 113</option>
+                          <option value="GST 114">GST 114</option>
+                        </select>
+                      </div>
+                     
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Credit Unit</label>
+                        <select name="credit_unit1" class="form-control">
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Select Program</label>
+                        <select name="programname_id" class="form-control">
+                          @foreach ($display_nidprograms as $display_nidprogram)
+                            @if ($display_nidprogram->status == 'approved')
+                              <option value="{{ $display_nidprogram->id }}">{{ $display_nidprogram->course_programs }} </option>
+                            @else
+                            @endif
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Semester</label>
+                          <select name="semester" class="form-control">
+                            <option value="First Semester">First Semester</option>
+                        
+                          </select>
+                        </div>
+                      </div>
+
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Assign Lecturer</label>
+                        <select name="lecturer_id" class="form-control">
+                          @foreach ($display_alllecturers as $display_alllecturer)
+                            @if ($display_alllecturer->status == 'approved')
+                              <option value="{{ $display_alllecturer->id }}">{{ $display_alllecturer->fname }} {{ $display_alllecturer->lname }}</option>
+                            @else
+                            @endif
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Year</label>
+                          <select name="resultsyear" class="form-control">
+                            <option value="2022/2023">2022/2023</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Code</label>
+                          <select name="course_code5" class="form-control">
+                            <option value="NIDMANFIRSTSEMLEVEL100L">NID</option>
+                            
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Level</label>
+                          <select name="level" class="form-control">
+                            <option value="100L"> 100L</option>
+                            
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-lg">
+                            Add Second Semester Level 100
+                          </button>
+                        </div>
+                      </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+
+ 
+
+  <script type="text/javascript">
+    $(function() {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+  
+      $('.swalDefaultSuccess').click(function() {
+        Toast.fire({
+          icon: 'success',
+          title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.swalDefaultInfo').click(function() {
+        Toast.fire({
+          icon: 'info',
+          title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.swalDefaultError').click(function() {
+        Toast.fire({
+          icon: 'error',
+          title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.swalDefaultWarning').click(function() {
+        Toast.fire({
+          icon: 'warning',
+          title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.swalDefaultQuestion').click(function() {
+        Toast.fire({
+          icon: 'question',
+          title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+  
+      $('.toastrDefaultSuccess').click(function() {
+        toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+      });
+      $('.toastrDefaultInfo').click(function() {
+        toastr.info('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+      });
+      $('.toastrDefaultError').click(function() {
+        toastr.error('Dear {{ Auth::guard('admin')->user()->name }} you do not have upto N5000 to withraw')
+      });
+      $('.toastrDefaultWarning').click(function() {
+        toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+      });
+  
+      $('.toastsDefaultDefault').click(function() {
+        $(document).Toasts('create', {
+          title: 'Toast Title',
+          body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.toastsDefaultTopLeft').click(function() {
+        $(document).Toasts('create', {
+          title: 'Toast Title',
+          position: 'topLeft',
+          body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.toastsDefaultBottomRight').click(function() {
+        $(document).Toasts('create', {
+          title: 'Toast Title',
+          position: 'bottomRight',
+          body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.toastsDefaultBottomLeft').click(function() {
+        $(document).Toasts('create', {
+          title: 'Toast Title',
+          position: 'bottomLeft',
+          body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.toastsDefaultAutohide').click(function() {
+        $(document).Toasts('create', {
+          title: 'Toast Title',
+          autohide: true,
+          delay: 750,
+          body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.toastsDefaultNotFixed').click(function() {
+        $(document).Toasts('create', {
+          title: 'Toast Title',
+          fixed: false,
+          body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.toastsDefaultFull').click(function() {
+        $(document).Toasts('create', {
+          body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+          title: 'Toast Title',
+          subtitle: 'Subtitle',
+          icon: 'fas fa-envelope fa-lg',
+        })
+      });
+      $('.toastsDefaultFullImage').click(function() {
+        $(document).Toasts('create', {
+          body: 'Dear {{ Auth::guard('admin')->user()->name }} your account has been suspended, please contact Whatsapp',
+          title: 'Suspended',
+          class: 'bg-danger', 
+          subtitle: 'Subtitle',
+          image: '{{ asset('/public/../'.Auth::guard('admin')->user()->images)}}',
+          imageAlt: 'User Picture',
+        })
+      });
+      $('.toastsDefaultSuccess').click(function() {
+        $(document).Toasts('create', {
+          class: 'bg-success', 
+          title: 'Toast Title',
+          subtitle: 'Subtitle',
+          body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.toastsDefaultInfo').click(function() {
+        $(document).Toasts('create', {
+          class: 'bg-info', 
+          title: 'Toast Title',
+          subtitle: 'Subtitle',
+          body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.toastsDefaultWarning').click(function() {
+        $(document).Toasts('create', {
+          class: 'bg-warning', 
+          title: 'Toast Title',
+          subtitle: 'Subtitle',
+          body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.toastsDefaultDanger').click(function() {
+        $(document).Toasts('create', {
+          class: 'bg-danger', 
+          title: 'Toast Title',
+          subtitle: 'Subtitle',
+          body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+      $('.toastsDefaultMaroon').click(function() {
+        $(document).Toasts('create', {
+          class: 'bg-maroon', 
+          title: 'Toast Title',
+          subtitle: 'Subtitle',
+          body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+      });
+    });
+  
+  </script>
+  <script>
+    window.addEventListener('showtoastr', function(event){
+      toastr.remove();
+      if (event.detail.type == 'info') {
+        toastr.info(event.detail.message);
+      }eleif(event.detail.type == 'success'){
+        toastr.success(event.detail.message);
+      }eleif(event.detail.type == 'error'){
+        toastr.error(event.detail.message);
+      }eleif(event.detail.type == 'warning'){
+        toastr.warning(event.detail.message);
+      }else{
+        return false;
+      }
+
+    });
+  </script>
+    @include('dashboard.admin.footer')
+
+
+    <div class="modal fade" id="modal-lg">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title"> </h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="{{ route('admin.createsinglecourse') }}" method="post" enctype="multipart/form-data">
+              @csrf
+              
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Course Title</label>
+                    <select name="course_title1" class="form-control">
+                      <option value="Practice of Entrepreneurship">Practice of Entrepreneurship</option>
+                      <option value="Introduction to System Analysis and Design">Introduction to System Analysis and Design</option>
+                      <option value="Business Mathematics 2">Business Mathematics 2</option>
+                      <option value="Introduction to Social Pschology">Introduction to Social Pschology</option>
+                      <option value="Principles of Economics 2">Principles of Economics 2</option>
+                      <option value="Principles of Accounts">Principles of Accounts</option>
+                      <option value="Principles of Management 1">Principles of Management 1</option>
+                      <option value="Computer & Society with I.T Security">Computer & Society with I.T Security</option>
+                      <option value="Computer Application Packages 2">Computer Application Packages 2</option>
+                      <option value="English Language & Communication Skills 2">English Language & Communication Skills 2</option>
+                    </select>
+                  </div>
+
+                  
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Course Code</label>
+                    <select name="course_code1" class="form-control">
+                      <option value="BMI 121">BMI 121</option>
+                      <option value="BMI 122">BMI 122</option>
+                      <option value="BMI 123">BMI 123</option>
+                      <option value="BMI 124">BMI 124</option>
+                      <option value="BMI 125">BMI 125</option>
+                      <option value="BMI 126">BMI 126</option>
+                      <option value="BMI 127">BMI 127</option>
+                      <option value="GST 121">GST 121</option>
+                      <option value="GST 122">GST 122</option>
+                      <option value="GST 123">GST 123</option>
+
+                    </select>
+                  </div>
+                 
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Credit Unit</label>
+                    <select name="credit_unit1" class="form-control">
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      {{-- <option value="6">6</option> --}}
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Select Program</label>
+                    <select name="programname_id" class="form-control">
+                      @foreach ($display_nidprograms as $display_nidprogram)
+                        @if ($display_nidprogram->status == 'approved')
+                          <option value="{{ $display_nidprogram->id }}">{{ $display_nidprogram->course_programs }} </option>
+                        @else
+                        @endif
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+  
+                <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Semester</label>
+                      <select name="semester" class="form-control">
+                        {{-- <option value="First Semester">First Semester</option> --}}
+                        <option value="Second Semester">Second Semester</option>
+                      </select>
+                    </div>
+                  </div>
+  
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Assign Lecturer</label>
+                    <select name="lecturer_id" class="form-control">
+                      @foreach ($display_alllecturers as $display_alllecturer)
+                        @if ($display_alllecturer->status == 'approved')
+                          <option value="{{ $display_alllecturer->id }}">{{ $display_alllecturer->fname }} {{ $display_alllecturer->lname }}</option>
+                        @else
+                        @endif
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+  
+                <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Year</label>
+                      <select name="resultsyear" class="form-control">
+                        <option value="2022/2023">2022/2023</option>
+                      </select>
+                    </div>
+                  </div>
+  
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Code</label>
+                      <select name="course_code5" class="form-control">
+                        <option value="NIDMANSECONDSEM100L">NID</option>
+                        
+                      </select>
+                    </div>
+                  </div>
+  
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Level</label>
+                      <select name="level" class="form-control">
+                        <option value="100L">LEVEL 100</option>
+                        
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="modal-footer justify-content-between">
+                            <button type="submit" class="btn btn-primary">Add </button>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    {{-- <button type="submit" class="btn btn-primary">Add Second Semester Courses Level 100</button> --}}
+                </div>
+            </form>
+            
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
