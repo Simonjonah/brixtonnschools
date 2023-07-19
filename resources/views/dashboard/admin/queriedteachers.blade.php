@@ -72,30 +72,30 @@
                     <div class="alert alert-danger">
                     {{ Session::get('fail') }}
                     @endif
-                    @foreach ($view_teachers as $view_teacher)
-                      @if ($view_teacher->status = 'teacher' OR $view_teacher->status = 'approved' OR $view_teacher->status = 'suspend' OR $view_teacher->status = 'sacked' OR $view_teacher->status = 'queried')
+                    @foreach ($queried_teachers as $queried_teacher)
+                      @if ($queried_teacher->status = 'teacher' && $queried_teacher->role = 'suspend')
                       <tr>
-                        <td>{{ $view_teacher->surname }}</td>
-                        <td>{{ $view_teacher->middlename }}</td>
-                        <td>{{ $view_teacher->fname }}</td>
-                        <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_teacher->images")}}" alt=""></td>
-                        <td>{{ $view_teacher->phone }}</td>
-                        <td>{{ $view_teacher->centername }}</td>
-                        <td>{{ $view_teacher->classname }}</td>
-                        <td>{{ $view_teacher->section }}</td>
-                        <td>{{ $view_teacher->entrylevel }}</td>
-                        <td>{{ $view_teacher->email }}</td>
+                        <td>{{ $queried_teacher->surname }}</td>
+                        <td>{{ $queried_teacher->middlename }}</td>
+                        <td>{{ $queried_teacher->fname }}</td>
+                        <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$queried_teacher->images")}}" alt=""></td>
+                        <td>{{ $queried_teacher->phone }}</td>
+                        <td>{{ $queried_teacher->centername }}</td>
+                        <td>{{ $queried_teacher->classname }}</td>
+                        <td>{{ $queried_teacher->section }}</td>
+                        <td>{{ $queried_teacher->entrylevel }}</td>
+                        <td>{{ $queried_teacher->email }}</td>
 
                        
-                       <td>@if ($view_teacher->status = 'teacher')
+                       <td>@if ($queried_teacher->status = 'teacher')
                         <span class="badge badge-secondary"> In progress</span>
-                       @elseif($view_teacher->status = 'suspend')
+                       @elseif($queried_teacher->status = 'suspend')
                        <span class="badge badge-warning"> Suspended</span>
-                       @elseif($view_teacher->status = 'sacked')
+                       @elseif($queried_teacher->status = 'sacked')
                        <span class="badge badge-danger"> Sacked</span>
-                       @elseif($view_teacher->status = 'approved')
+                       @elseif($queried_teacher->status = 'approved')
                        <span class="badge badge-info"> Approved</span>
-                       @elseif($view_teacher->status = 'queried')
+                       @elseif($queried_teacher->status = 'queried')
                        
                        <span class="badge badge-success">Queried</span>
                        @endif</td>
@@ -105,23 +105,23 @@
                           Action
                         </button>
                         <ul class="dropdown-menu">
-                          <li class="dropdown-item"><a href="{{ url('admin/viewsingleteacher/'.$view_teacher->ref_no) }}">View</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/editteacher/'.$view_teacher->ref_no) }}">Edit</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teacherapprove/'.$view_teacher->ref_no) }}">Approved</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teachersuspend/'.$view_teacher->ref_no) }}">Suspend</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teachersacked/'.$view_teacher->ref_no) }}">Sacked</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teacherquery/'.$view_teacher->ref_no) }}">Query</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/viewsingleteacher/'.$queried_teacher->ref_no) }}">View</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/editteacher/'.$queried_teacher->ref_no) }}">Edit</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/teacherapprove/'.$queried_teacher->ref_no) }}">Approved</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/teachersuspend/'.$queried_teacher->ref_no) }}">Suspend</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/teachersacked/'.$queried_teacher->ref_no) }}">Sacked</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/teacherquery/'.$queried_teacher->ref_no) }}">Query</a></li>
                         </ul>
                       </div></td>
                        
                      
                       <th><a href="{{ url('admin/teachersprint') }}" class="btn btn-success"><i class="fas fa-print"></i></a></th>
-                       <td><a href="{{ url('admin/teacherdelete/'.$view_teacher->ref_no) }}"
+                       <td><a href="{{ url('admin/teacherdelete/'.$queried_teacher->ref_no) }}"
                         class='btn btn-danger'>
                          <i class="far fa-trash-alt"></i>
                      </a></td>
                         
-                     <td>{{ $view_teacher->created_at->format('D d, M Y, H:i')}}</td>
+                     <td>{{ $queried_teacher->created_at->format('D d, M Y, H:i')}}</td>
 
                       </tr>
                       @else

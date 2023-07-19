@@ -780,7 +780,7 @@ class UserController extends Controller
     }
 
     public function viewteachers(){
-        $view_teachers = User::where('role', 'teacher')->get();
+        $view_teachers = User::where('status', 'teacher')->get();
         return view('dashboard.admin.viewteachers', compact('view_teachers'));
     }
 
@@ -849,17 +849,59 @@ class UserController extends Controller
 
     public function teacherapprove($ref_no){
         $approved_teacher = User::where('ref_no', $ref_no)->first();
-        $approved_teacher->status = 'approved';
+        $approved_teacher->role = 'approved';
         $approved_teacher->save();
         return redirect()->back()->with('success', 'you have approved successfully');
     }
 
     public function teachersuspend($ref_no){
         $approved_teacher = User::where('ref_no', $ref_no)->first();
-        $approved_teacher->status = 'suspend';
+        $approved_teacher->role = 'suspend';
         $approved_teacher->save();
         return redirect()->back()->with('success', 'you have suspend successfully');
     }
+
+    public function teachersacked($ref_no){
+        $approved_teacher = User::where('ref_no', $ref_no)->first();
+        $approved_teacher->role = 'sacked';
+        $approved_teacher->save();
+        return redirect()->back()->with('success', 'you have sacked successfully');
+    }
+    
+    public function teacherquery($ref_no){
+        $query_singteachers = User::where('ref_no', $ref_no)->first();
+
+        return view('dashboard.admin.teacherquery', compact('query_singteachers'));
+    }
+    public function teachersprint(){
+        $print_teachers = User::where('status', 'teacher')->get();
+
+        return view('dashboard.admin.teachersprint', compact('print_teachers'));
+    }
+
+    public function approveteachers(){
+        $approves_teachers = User::where('role', 'approved')->get();
+        return view('dashboard.admin.approveteachers', compact('approves_teachers'));
+    }
+    public function suspendedteachers(){
+        $suspend_teachers = User::where('role', 'suspend')->get();
+        return view('dashboard.admin.suspendedteachers', compact('suspend_teachers'));
+    }
+    public function sackedteachers(){
+        $sacked_teachers = User::where('role', 'sacked')->get();
+        return view('dashboard.admin.sackedteachers', compact('sacked_teachers'));
+    }
+
+    public function queriedteachers(){
+        $queried_teachers = User::where('role', 'sacked')->get();
+        return view('dashboard.admin.queriedteachers', compact('queried_teachers'));
+    }
+
+    public function allteachers(){
+        $all_teachers = User::where('status', 'teacher')->get();
+        return view('dashboard.admin.allteachers', compact('all_teachers'));
+    }
+    
     
     public function logout(){
         Auth::guard('web')->logout();

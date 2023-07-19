@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class Query extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -20,6 +17,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'studycenter',
+        'address',
+        'phone',
         'password',
     ];
 
@@ -43,9 +43,31 @@ class User extends Authenticatable
     ];
 
 
-    public function queries() 
-    {
-        return $this->hasMany(Query::class);
-    }
+    
+
+
+
+
+//protected $appends = ['referral_link'];
+
+/**
+ * The accessors to append to the model's array form.
+ *
+ * @var array
+ */
+protected $appends = ['referral_link'];
+
+/**
+ * Get the user's referral link.
+ *
+ * @return string
+ */
+
+
+ public function user()
+ {
+     return $this->belongsTo(User::class, 'id');
+ }
+
 
 }

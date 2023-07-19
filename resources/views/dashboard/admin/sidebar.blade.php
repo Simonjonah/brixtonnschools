@@ -611,26 +611,40 @@
               <li class="nav-item">
                 <a href="{{ route('admin.viewteachers') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View Lecturers</p>
+                  <p>View Teachers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('admin.approvelecturers') }}" class="nav-link">
+                <a href="{{ route('admin.approveteachers') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View Approve Lecturers </p>
+                  <p>View Approve Teachers </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('admin.suspendedlecturers') }}" class="nav-link">
+                <a href="{{ route('admin.suspendedteachers') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View Approve Suspended </p>
+                  <p>View  Suspended Teachers </p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{ route('admin.lecturers') }}" class="nav-link">
+                <a href="{{ route('admin.sackedteachers') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View all Lecturers </p>
+                  <p>View  Sacked Teachers </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ route('admin.queriedteachers') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View  Queried Teachers </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ route('admin.allteachers') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View all Teachers </p>
                 </a>
               </li>
             </ul>

@@ -46,6 +46,7 @@
                 <p class="text-muted text-center"> {{ $view_singteachers->email }}</p>
 
                 <span class="badge badge-secondary">{{$view_singteachers->status}}</span>
+                <span class="badge badge-primary">{{$view_singteachers->role}}</span>
               
               </div>
               <!-- /.card-body -->

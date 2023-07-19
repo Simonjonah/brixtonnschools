@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PaymentController;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudycenterController;
@@ -114,6 +116,10 @@ Route::get('/admission', function () {
 });
 
 
+// Route::get('/payment', [PaymentController::class, 'initiatePayment']);
+// Route::post('/payment/callback', [PaymentController::class, 'handlePaymentCallback']);
+
+
 Route::get('/printadmissionform/{ref_no}', [UserController::class, 'printadmissionform'])->name('printadmissionform');
 Route::put('/addmedicalsdadmmin/{ref_no}', [UserController::class, 'addmedicalsdadmmin'])->name('addmedicalsdadmmin');
 Route::put('/updateaddthirdondadmmin/{ref_no}', [UserController::class, 'updateaddthirdondadmmin'])->name('updateaddthirdondadmmin');
@@ -144,6 +150,15 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::middleware(['auth:admin'])->group(function() {
        
         
+        Route::get('allteachers', [UserController::class, 'allteachers'])->name('allteachers');
+        Route::get('queriedteachers', [UserController::class, 'queriedteachers'])->name('queriedteachers');
+        Route::get('sackedteachers', [UserController::class, 'sackedteachers'])->name('sackedteachers');
+        Route::get('suspendedteachers', [UserController::class, 'suspendedteachers'])->name('suspendedteachers');
+        Route::get('suspendedteachers', [UserController::class, 'suspendedteachers'])->name('suspendedteachers');
+        Route::get('approveteachers', [UserController::class, 'approveteachers'])->name('approveteachers');
+        Route::get('teachersprint', [UserController::class, 'teachersprint'])->name('teachersprint');
+        Route::get('teacherquery/{ref_no}', [UserController::class, 'teacherquery'])->name('teacherquery');
+        Route::get('teachersacked/{ref_no}', [UserController::class, 'teachersacked'])->name('teachersacked');
         Route::get('teachersuspend/{ref_no}', [UserController::class, 'teachersuspend'])->name('teachersuspend');
         Route::get('teacherapprove/{ref_no}', [UserController::class, 'teacherapprove'])->name('teacherapprove');
         Route::put('teacherupdated/{ref_no}', [UserController::class, 'teacherupdated'])->name('teacherupdated');
