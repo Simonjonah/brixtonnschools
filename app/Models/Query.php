@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-class Query extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+class Query extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -15,12 +17,8 @@ class Query extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'studycenter',
-        'address',
-        'phone',
-        'password',
+        
+        'user_id',
     ];
 
     /**

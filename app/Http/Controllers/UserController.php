@@ -902,7 +902,8 @@ class UserController extends Controller
         return view('dashboard.admin.allteachers', compact('all_teachers'));
     }
     
-    
+
+   
     public function logout(){
         Auth::guard('web')->logout();
         return redirect('login');

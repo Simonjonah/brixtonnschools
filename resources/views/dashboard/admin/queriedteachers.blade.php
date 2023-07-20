@@ -75,16 +75,16 @@
                     @foreach ($queried_teachers as $queried_teacher)
                       @if ($queried_teacher->status = 'teacher' && $queried_teacher->role = 'suspend')
                       <tr>
-                        <td>{{ $queried_teacher->surname }}</td>
-                        <td>{{ $queried_teacher->middlename }}</td>
-                        <td>{{ $queried_teacher->fname }}</td>
+                        <td>{{ $queried_teacher->user['surname'] }}</td>
+                        <td>{{ $queried_teacher->user['middlename'] }}</td>
+                        <td>{{ $queried_teacher->user['fname'] }}</td>
                         <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$queried_teacher->images")}}" alt=""></td>
-                        <td>{{ $queried_teacher->phone }}</td>
-                        <td>{{ $queried_teacher->centername }}</td>
-                        <td>{{ $queried_teacher->classname }}</td>
-                        <td>{{ $queried_teacher->section }}</td>
-                        <td>{{ $queried_teacher->entrylevel }}</td>
-                        <td>{{ $queried_teacher->email }}</td>
+                        <td>{{ $queried_teacher->user['phone'] }}</td>
+                        <td>{{ $queried_teacher->user['centername'] }}</td>
+                        <td>{{ $queried_teacher->user['classname'] }}</td>
+                        <td>{{ $queried_teacher->user['section'] }}</td>
+                        <td>{{ $queried_teacher->user['entrylevel'] }}</td>
+                        <td>{{ $queried_teacher->user['email'] }}</td>
 
                        
                        <td>@if ($queried_teacher->status = 'teacher')

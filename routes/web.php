@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\QueryController;
+
 use App\Http\Controllers\PaymentController;
 
 use App\Http\Controllers\HomeController;
@@ -150,8 +152,9 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::middleware(['auth:admin'])->group(function() {
        
         
+        Route::put('addquerytoteacher/{ref_no}', [QueryController::class, 'addquerytoteacher'])->name('addquerytoteacher');
         Route::get('allteachers', [UserController::class, 'allteachers'])->name('allteachers');
-        Route::get('queriedteachers', [UserController::class, 'queriedteachers'])->name('queriedteachers');
+        Route::get('queriedteachers', [QueryController::class, 'queriedteachers'])->name('queriedteachers');
         Route::get('sackedteachers', [UserController::class, 'sackedteachers'])->name('sackedteachers');
         Route::get('suspendedteachers', [UserController::class, 'suspendedteachers'])->name('suspendedteachers');
         Route::get('suspendedteachers', [UserController::class, 'suspendedteachers'])->name('suspendedteachers');

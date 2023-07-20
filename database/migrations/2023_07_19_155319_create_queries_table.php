@@ -23,6 +23,9 @@ return new class extends Migration
             $table->string('centername')->nullable();
             $table->string('images')->nullable();
             $table->string('ref_no')->nullable();
+            $table->string('querytitle')->nullable();
+            $table->text('messages')->nullable();
+          
 
             $table->timestamps();
         });

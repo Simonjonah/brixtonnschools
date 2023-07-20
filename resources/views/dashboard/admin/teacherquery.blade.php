@@ -83,13 +83,27 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body pad">
-                <form action="{{ url('admin/addquerytoteacher/'.$query_singteachers->ref_no) }}" method="post" method="post" enctype="multipart/form-data">
-                    <div class="mb-3">
-                      <input type="text" name="user_id" class="form-control" placeholder="Query Title">
+                <form action="{{ url('admin/addquerytoteacher/'.$query_singteachers->ref_no) }}" method="post" enctype="multipart/form-data">
+                  @csrf
+                  @if (Session::get('success'))
+                  <div class="alert alert-success">
+                      {{ Session::get('success') }}
+                  </div>
+                  @endif
+
+                  @if (Session::get('fail'))
+                  <div class="alert alert-danger">
+                  {{ Session::get('fail') }}
+                  @endif
+
+                    @method('PUT')
+                  <div class="mb-3">
+                      <input type="hidden" name="user_id" value="{{ $query_singteachers->id }}" class="form-control" placeholder="Query Title">
                       <input type="text" name="querytitle" class="form-control" placeholder="Query Title">
+                      <input type="hidden" name="images" value="{{ $query_singteachers->images }}" class="form-control" placeholder="Query Title">
                       </div>
                     <div class="mb-3">
-                      <textarea class="textarea" placeholder="Place some text here"
+                      <textarea name="messages" class="textarea" placeholder="Place some text here"
                                 style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                     </div>
 
