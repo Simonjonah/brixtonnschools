@@ -31,7 +31,7 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title" style="color: red">Uyo Study Center</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -52,8 +52,8 @@
                     <th>Email</th>
 
                    
-                    <th>Status</th>
-                    <th>Action</th>
+                    {{-- <th>Status</th> --}}
+                    <th>View</th>
                    
                     <th>Print</th>
                     <th>Delete</th>
@@ -73,7 +73,7 @@
                     {{ Session::get('fail') }}
                     @endif
                     @foreach ($queried_teachers as $queried_teacher)
-                      @if ($queried_teacher->status = 'teacher' && $queried_teacher->role = 'suspend')
+                      @if ($queried_teacher->user['status'] === 'teacher')
                       <tr>
                         <td>{{ $queried_teacher->user['surname'] }}</td>
                         <td>{{ $queried_teacher->user['middlename'] }}</td>
@@ -87,36 +87,22 @@
                         <td>{{ $queried_teacher->user['email'] }}</td>
 
                        
-                       <td>@if ($queried_teacher->status = 'teacher')
-                        <span class="badge badge-secondary"> In progress</span>
-                       @elseif($queried_teacher->status = 'suspend')
-                       <span class="badge badge-warning"> Suspended</span>
-                       @elseif($queried_teacher->status = 'sacked')
-                       <span class="badge badge-danger"> Sacked</span>
-                       @elseif($queried_teacher->status = 'approved')
-                       <span class="badge badge-info"> Approved</span>
-                       @elseif($queried_teacher->status = 'queried')
-                       
-                       <span class="badge badge-success">Queried</span>
-                       @endif</td>
+                        {{-- <td>@if ($queried_teacher->user['role'] === 'teacher')
+                          <span class="badge badge-secondary">In Progress</span>
+                          @elseif ($queried_teacher->user['role'] === 'sacked')
+                          <span class="badge badge-danger">Sacked</span>
+                          @elseif ($queried_teacher->user['role'] === 'suspend')
+                          <span class="badge badge-warning">Suspended</span>
+                            @else
+                            <span class="badge badge-success">Employed</span>
+                          @endif</td> --}}
 
-                       <td> <div class="input-group-prepend">
-                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                          Action
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li class="dropdown-item"><a href="{{ url('admin/viewsingleteacher/'.$queried_teacher->ref_no) }}">View</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/editteacher/'.$queried_teacher->ref_no) }}">Edit</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teacherapprove/'.$queried_teacher->ref_no) }}">Approved</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teachersuspend/'.$queried_teacher->ref_no) }}">Suspend</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teachersacked/'.$queried_teacher->ref_no) }}">Sacked</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teacherquery/'.$queried_teacher->ref_no) }}">Query</a></li>
-                        </ul>
-                      </div></td>
+                     
                        
                      
-                      <th><a href="{{ url('admin/teachersprint') }}" class="btn btn-success"><i class="fas fa-print"></i></a></th>
-                       <td><a href="{{ url('admin/teacherdelete/'.$queried_teacher->ref_no) }}"
+                      <th><a href="{{ url('admin/viewteacherquery/'.$queried_teacher->id) }}" class="btn btn-default"><i class="fas fa-eye"></i></a></th>
+                      <th><a href="{{ url('admin/printquery/'.$queried_teacher->id) }}" class="btn btn-success"><i class="fas fa-print"></i></a></th>
+                       <td><a href="{{ url('admin/teacherdelete/'.$queried_teacher->id) }}"
                         class='btn btn-danger'>
                          <i class="far fa-trash-alt"></i>
                      </a></td>
@@ -148,8 +134,8 @@
                       <th>Email</th>
   
                      
-                      <th>Status</th>
-                      <th>Action</th>
+                      {{-- <th>Status</th> --}}
+                      <th>View</th>
                      
                       <th>Print</th>
                       <th>Delete</th>
@@ -169,6 +155,10 @@
       </div>
       <!-- /.container-fluid -->
     </section>
+
+
+
+    
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -209,6 +199,29 @@
 <script src="../../assets/dist/js/adminlte.min.js?v=3.2.0"></script>
 
 <script src="../../assets/dist/js/demo.js"></script>
+
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Default Modal</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 <script>
   $(function () {

@@ -527,7 +527,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Subject
+                Subjects
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -538,11 +538,16 @@
                   <p>Add Subject</p>
                 </a>
               </li>
-
+              <li class="nav-item">
+                <a href="{{ route('admin.nurserysubjects') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> Prim & Nursery Sub</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="{{ route('admin.viewsubject') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View Subjects</p>
+                  <p>High School Sub</p>
                 </a>
               </li>
             

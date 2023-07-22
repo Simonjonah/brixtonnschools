@@ -34,7 +34,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{ url('admin/createsubject') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('admin/assignsubjectstoteacher/'.$assigned_subject->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if (Session::get('success'))
                         <div class="alert alert-success">
@@ -52,32 +52,37 @@
                 
            
             <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-23">
-                        <div class="form-group">
-                            <label>Subjects</label>
-                            <input type="text" class="form-control" @error('subjectname')
-                            @enderror value="{{ old('subjectname') }}" name="subjectname" placeholder="Subject name">
-                          </div>
-                        </div>
-                        @error('subjectname')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror 
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-23">
+                
+                    <div class="form-group">
+                        <label>{{ $assigned_subject->subjectname }}</label>
+                        <input type="hidden" class="form-control" @error('subjectname')
+                        @enderror value="{{ $assigned_subject->id }}" name="subject_id" placeholder="Subject name">
+                      </div>
+                 
                       <div class="form-group">
                         <h5>Section </h5>
                         <select required class="form-control" type="text" name="section">
-                          {{-- <option value="Creche">Creche</option>
-                          <option value="Pre-School">Pre-School</option>
-                          <option value="Preparatory">Preparatory</option> --}}
-                          {{-- <option value="Nursery">Nursery</option> --}}
-                          <option value="Primary">Primary</option>
-                          <option value="High School">High School</option>
+                          <option value="{{ $assigned_subject->section }}">{{ $assigned_subject->section }}</option>
                         </select>
-                      </div> 
                     </div>
+
+                    <div class="form-group">
+                      <h5>Select Teacher </h5>
+                      <select required class="form-control" type="text" name="user_id">
+                        @if ($assigned_subject->section == 'Primary')
+                          @foreach ($assigned_teacherto_subjects as $assigned_teacherto_subject)
+                            <option value="{{ $assigned_teacherto_subject->id }}">{{ $assigned_teacherto_subject->fname }} {{ $assigned_teacherto_subject->surname }} {{ $assigned_teacherto_subject->centername }} {{ $assigned_teacherto_subject->section }} {{ $assigned_teacherto_subject->classname }}</option>
+                          @endforeach
+                        @else
+                        @foreach ($assigned_highschool_subjects as $assigned_highschool_subject)
+                        <option value="{{ $assigned_highschool_subject->id }}">{{ $assigned_highschool_subject->fname }} {{ $assigned_highschool_subject->surname }} {{ $assigned_highschool_subject->centername }} {{ $assigned_highschool_subject->section }} {{ $assigned_highschool_subject->classname }}</option>
+                        @endforeach
+                        
+                        @endif
+                      </select>
+                  </div>
+                      
+
                 
               
               

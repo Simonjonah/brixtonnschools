@@ -39,17 +39,15 @@
        
         <address>
           <strong>BRIXTONN SCHOOLS</strong><br>
-          @if ( Auth::guard('admin')->user()->centername = 'Uyo')
-          30 Ewet Housing, Uyo <br>
-          Akwa Ibom State, Nigeria
-          @else
-          30 Asokoro, Abuja <br>
-          Nigeria 
-          @endif
+            @if ( Auth::guard('admin')->user()->centername = 'Uyo')
+            30 Ewet Housing, Uyo <br>
+            Akwa Ibom State, Nigeria
+            @else
+            30 Asokoro, Abuja <br>
+            Nigeria 
+            @endif
           <br>
-          {{-- San Francisco, CA 94107<br>
-          Phone: (804) 123-5432<br>
-          Email: info@almasaeedstudio.com --}}
+          
         </address>
       </div>
      

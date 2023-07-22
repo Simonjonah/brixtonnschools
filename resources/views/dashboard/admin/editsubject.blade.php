@@ -34,7 +34,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{ url('admin/createsubject') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('admin/updatesubject/'.$edit_subject->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if (Session::get('success'))
                         <div class="alert alert-success">
@@ -47,7 +47,7 @@
                         {{ Session::get('fail') }}
                         </div>
                     @endif
-                {{-- @method('PUT') --}}
+                @method('PUT')
 
                 
            
@@ -57,7 +57,7 @@
                         <div class="form-group">
                             <label>Subjects</label>
                             <input type="text" class="form-control" @error('subjectname')
-                            @enderror value="{{ old('subjectname') }}" name="subjectname" placeholder="Subject name">
+                            @enderror value="{{ $edit_subject->subjectname }}" name="subjectname" placeholder="Subject name">
                           </div>
                         </div>
                         @error('subjectname')
@@ -72,7 +72,7 @@
                           {{-- <option value="Creche">Creche</option>
                           <option value="Pre-School">Pre-School</option>
                           <option value="Preparatory">Preparatory</option> --}}
-                          {{-- <option value="Nursery">Nursery</option> --}}
+                          <option value="{{ $edit_subject->section }}">{{ $edit_subject->section }}</option>
                           <option value="Primary">Primary</option>
                           <option value="High School">High School</option>
                         </select>

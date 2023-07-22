@@ -86,19 +86,15 @@
                         <td>{{ $suspend_teacher->entrylevel }}</td>
                         <td>{{ $suspend_teacher->email }}</td>
 
-                       
-                       <td>@if ($suspend_teacher->status = 'teacher')
-                        <span class="badge badge-secondary"> In progress</span>
-                       @elseif($suspend_teacher->status = 'suspend')
-                       <span class="badge badge-warning"> Suspended</span>
-                       @elseif($suspend_teacher->status = 'sacked')
-                       <span class="badge badge-danger"> Sacked</span>
-                       @elseif($suspend_teacher->status = 'approved')
-                       <span class="badge badge-info"> Approved</span>
-                       @elseif($suspend_teacher->status = 'queried')
-                       
-                       <span class="badge badge-success">Queried</span>
-                       @endif</td>
+                        <td>@if ($suspend_teacher->role == 'teacher')
+                          <span class="badge badge-secondary">In Progress</span>
+                          @elseif ($suspend_teacher->role == 'sacked')
+                          <span class="badge badge-danger">Sacked</span>
+                          @elseif ($suspend_teacher->role == 'suspend')
+                          <span class="badge badge-warning">Suspended</span>
+                            @else
+                            <span class="badge badge-success">Employed</span>
+                          @endif</td>
 
                        <td> <div class="input-group-prepend">
                         <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">

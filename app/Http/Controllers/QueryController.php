@@ -38,4 +38,15 @@ class QueryController extends Controller
         $queried_teachers = Query::all();
         return view('dashboard.admin.queriedteachers', compact('queried_teachers'));
     }
+
+    public function printquery($id){
+        $print_query = Query::find($id);
+        return view('dashboard.admin.printquery', compact('print_query'));
+    }
+
+    public function viewteacherquery($id){
+        $view_query = Query::find($id);
+        return view('dashboard.admin.viewteacherquery', compact('view_query'));
+    }
+     
 }

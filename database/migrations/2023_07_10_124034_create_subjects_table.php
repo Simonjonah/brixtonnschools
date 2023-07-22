@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_id')->nullable();
             $table->string('subjectname')->nullable();
-            $table->string('classname');
+            $table->string('section')->nullable();
             $table->timestamps();
         });
     }

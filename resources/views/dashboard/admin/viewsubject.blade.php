@@ -10,7 +10,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Subjects</h1>
+            <h1>Subjects for High School</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -38,28 +38,12 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Classes</th>
                     <th>Subjects</th>
-                    <th>Lastname</th>
-                    <th>Images</th>
-                    <th>View</th>
-                    <th>Status</th>
+                    <th>Section</th>
                     <th>Actions</th>
-
-                    <th>Reg No</th>
-                    <th>Ref. No</th>
                     <th>Edit</th>
-                    <th>Reject</th>
-                    <th>Assigned </th>
-                    <th>Suspend</th>
-                    <th>Admit</th>
-                    
-                    {{-- <th>Send to IT</th> --}}
                     <th>Delete</th>
-                    {{-- <th>I.T Status</th> --}}
-
                     <th>Date</th>
-
                   </tr>
                   </thead>
                   <tbody>
@@ -67,76 +51,28 @@
                     @foreach ($view_subjects as $view_subject)
        
                       <tr>
-                        <td>{{ $view_subject->name }}</td>
                         <td>{{ $view_subject->subjectname }}</td>
-                        <td>{{ $view_subject->fname }}</td>
-                        <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_subject->images")}}" alt=""></td>
-                        <td><a href="{{ url('admin/viewstudents/'.$view_subject->ref_no) }}"
-                            class='btn btn-default'>
-                             <i class="far fa-eye"></i>
-                         </a></td>
-                         <td>@if ($view_subject->status == null)
-                          <span class="badge badge-secondary"> In progress</span>
-                         @elseif($view_subject->status == 'suspend')
-                         <span class="badge badge-warning"> Suspended</span>
-                         @elseif($view_subject->status == 'reject')
-                         <span class="badge badge-danger"> Rejected</span>
-                         @elseif($view_subject->status == 'approved')
-                         <span class="badge badge-info"> Approved</span>
-                         @elseif($view_subject->status == 'admitted')
-                         
-                         <span class="badge badge-success">Admitted</span>
-                         @endif</td>
+                        <td>{{ $view_subject->section }}</td>
+                       
                         
-                       <td> <div class="input-group-prepend">
-                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                          Action
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li class="dropdown-item"><a href="{{ url('admin/alluyocrechepdf') }}">Print Uyo Creche</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/alluyopreperatorypdf') }}">Print Uyo preperatory</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/allpreschoolpdf') }}">Print Uyo pre-School</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/alluyonurserypdf') }}">Print Uyo Nursery</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/alluyoprimarypdf') }}">Print Uyo Primary</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/alluyohighschpdf') }}">Print Uyo High School</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/alluyocentpdf') }}">Print All Uyo Center</a></li>
-                          
-                        </ul>
-                      </div></td>
-
-                      <td>{{ $view_subject->regnumber }}</td>
-                      <td>{{ $view_subject->ref_no }}</td>
-                         <td><a href="{{ url('admin/editstudent/'.$view_subject->ref_no) }}"
+                        
+                        <td><a href="{{ url('admin/assignsubject/'.$view_subject->id) }}"
+                          class='btn btn-primary'>
+                           <i class="far fa-user"></i>
+                       </a></td> 
+                    
+                         <td><a href="{{ url('admin/editsubject/'.$view_subject->id) }}"
                           class='btn btn-info'>
                            <i class="far fa-edit"></i>
                        </a></td>  
-                       
-                        
-                       <th><a href="{{ url('admin/rejectstudent/'.$view_subject->ref_no) }}" class="btn btn-sm bg-teal">
-                        <i class="fas fa-user"></i>
-                      </a></th>
-                      <th><a href="{{ url('admin/assignedteacher/'.$view_subject->ref_no) }}" class="btn btn-sm bg-teal">
-                        <i class="fas fa-comments"></i>
-                      </a></th><th><a href="{{ url('admin/suspendstudent/'.$view_subject->ref_no) }}" class="btn btn-sm bg-teal">
-                        <i class="fas fa-comments"></i>
-                      </a></th>
 
-                      <th> <a href="{{ url('admin/studentsaddmit/'.$view_subject->ref_no) }}" class="btn btn-sm btn-primary">
-                        <i class="fas fa-user"></i> 
-                      </a></th>
-                      
                      
-                      {{-- <th><a href="{{ url('admin/studentit/'.$view_subject->ref_no) }}" class="btn btn-info"><i class="fas fa-user"></i> IT</a></th> --}}
-                       <td><a href="{{ url('admin/deletestudent/'.$view_subject->ref_no) }}"
+                     
+                       <td><a href="{{ url('admin/deletesubject/'.$view_subject->id) }}"
                         class='btn btn-danger'>
                          <i class="far fa-trash-alt"></i>
                      </a></td>
-                     {{-- <td>@if ($view_subject->student_identity == null)
-                      <span class="badge badge-danger">Not Send</span>
-                     @elseif($view_subject->student_identity == 'IT SEND')
-                     <span class="badge badge-info"> Send For I.T</span>
-                     
-                     @endif</td> --}}
+                    
                      <td>{{ $view_subject->created_at->format('D d, M Y, H:i')}}</td>
 
                       </tr>
@@ -148,29 +84,12 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <th>Classes</th>
                       <th>Subjects</th>
-                      <th>Lastname</th>
-                      <th>Images</th>
-                      <th>View</th>
-                      <th>Status</th>
+                      <th>Section</th>
                       <th>Actions</th>
-  
-                      <th>Reg No</th>
-                      <th>Ref. No</th>
-
                       <th>Edit</th>
-                      <th>Reject</th>
-                      <th>Assigned </th>
-                      <th>Suspend</th>
-                      <th>Admit</th>
-                      
-                      {{-- <th>Send to IT</th> --}}
                       <th>Delete</th>
-                      {{-- <th>I.T Status</th> --}}
-  
                       <th>Date</th>
-  
                     </tr>
                   </tfoot>
                 </table>
@@ -187,6 +106,31 @@
     </section>
     <!-- /.content -->
   </div>
+
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Default Modal</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-control">
+            
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">

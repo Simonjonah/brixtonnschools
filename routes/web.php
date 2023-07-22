@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\QueryController;
+// use App\Http\Controllers\TeacherassignController;
 
 use App\Http\Controllers\PaymentController;
 
@@ -30,7 +31,10 @@ use App\Models\Gallery;
 use App\Models\Facility;
 use App\Models\Mainslider;
 use App\Models\Studycenter;
+use App\Models\Subject;
 use App\Models\User;
+use Mockery\Matcher\Subset;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -150,14 +154,20 @@ Route::prefix('admin')->name('admin.')->group(function() {
     });
     
     Route::middleware(['auth:admin'])->group(function() {
-       
         
+        Route::post('assignsubjectstoteacher/{id}', [TeacherassignController::class, 'assignsubjectstoteacher'])->name('assignsubjectstoteacher');
+        Route::get('assignsubject/{id}', [SubjectController::class, 'assignsubject'])->name('assignsubject');
+        Route::get('deletesubject/{id}', [SubjectController::class, 'deletesubject'])->name('deletesubject');
+        Route::put('updatesubject/{id}', [SubjectController::class, 'updatesubject'])->name('updatesubject');
+        Route::get('editsubject/{id}', [SubjectController::class, 'editsubject'])->name('editsubject');
+        Route::get('viewteacherquery/{id}', [QueryController::class, 'viewteacherquery'])->name('viewteacherquery');
+        Route::get('printquery/{id}', [QueryController::class, 'printquery'])->name('printquery');
         Route::put('addquerytoteacher/{ref_no}', [QueryController::class, 'addquerytoteacher'])->name('addquerytoteacher');
         Route::get('allteachers', [UserController::class, 'allteachers'])->name('allteachers');
         Route::get('queriedteachers', [QueryController::class, 'queriedteachers'])->name('queriedteachers');
         Route::get('sackedteachers', [UserController::class, 'sackedteachers'])->name('sackedteachers');
         Route::get('suspendedteachers', [UserController::class, 'suspendedteachers'])->name('suspendedteachers');
-        Route::get('suspendedteachers', [UserController::class, 'suspendedteachers'])->name('suspendedteachers');
+        Route::get('nurserysubjects', [SubjectController::class, 'nurserysubjects'])->name('nurserysubjects');
         Route::get('approveteachers', [UserController::class, 'approveteachers'])->name('approveteachers');
         Route::get('teachersprint', [UserController::class, 'teachersprint'])->name('teachersprint');
         Route::get('teacherquery/{ref_no}', [UserController::class, 'teacherquery'])->name('teacherquery');

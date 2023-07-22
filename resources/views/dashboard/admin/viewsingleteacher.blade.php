@@ -46,7 +46,15 @@
                 <p class="text-muted text-center"> {{ $view_singteachers->email }}</p>
 
                 <span class="badge badge-secondary">{{$view_singteachers->status}}</span>
-                <span class="badge badge-primary">{{$view_singteachers->role}}</span>
+                @if ($view_singteachers->role == 'teacher')
+                <span class="badge badge-secondary">In Progress</span>
+                @elseif ($view_singteachers->role == 'sacked')
+                <span class="badge badge-danger">Sacked</span>
+                @elseif ($view_singteachers->role == 'suspend')
+                <span class="badge badge-warning">Suspended</span>
+                  @else
+                  <span class="badge badge-success">Employed</span>
+                @endif
               
               </div>
               <!-- /.card-body -->

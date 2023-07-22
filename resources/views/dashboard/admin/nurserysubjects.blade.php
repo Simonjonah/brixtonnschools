@@ -38,25 +38,10 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Lastname</th>
-                    <th>Middlename</th>
-                    <th>First Name</th>
-                    <th>Images</th>
-
-                    <th>Phone</th>
+                    <th>Subjects</th>
                     <th>Centername</th>
-                    <th>Classname</th>
-                    <th>Section</th>
-                    <th>Entry Level</th>
+                    <th>Assign Teacher</th>
 
-                    <th>Email</th>
-
-                   
-                    <th>Status</th>
-                    <th>Action</th>
-                   
-                    <th>Print</th>
-                    <th>Delete</th>
                     <th>Date</th>
                   </tr>
                   </thead>
@@ -72,57 +57,22 @@
                     <div class="alert alert-danger">
                     {{ Session::get('fail') }}
                     @endif
-                    @foreach ($approves_teachers as $approves_teacher)
-                      @if ($approves_teacher->status = 'teacher' && $approves_teacher->role = 'approved')
-                      <tr>
-                        <td>{{ $approves_teacher->surname }}</td>
-                        <td>{{ $approves_teacher->middlename }}</td>
-                        <td>{{ $approves_teacher->fname }}</td>
-                        <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$approves_teacher->images")}}" alt=""></td>
-                        <td>{{ $approves_teacher->phone }}</td>
-                        <td>{{ $approves_teacher->centername }}</td>
-                        <td>{{ $approves_teacher->classname }}</td>
-                        <td>{{ $approves_teacher->section }}</td>
-                        <td>{{ $approves_teacher->entrylevel }}</td>
-                        <td>{{ $approves_teacher->email }}</td>
-
-                        <td>@if ($approves_teacher->role == 'teacher')
-                          <span class="badge badge-secondary">In Progress</span>
-                          @elseif ($approves_teacher->role == 'sacked')
-                          <span class="badge badge-danger">Sacked</span>
-                          @elseif ($approves_teacher->role == 'suspend')
-                          <span class="badge badge-warning">Suspended</span>
-                            @else
-                            <span class="badge badge-success">Employed</span>
-                          @endif</td>
-
-                       <td> <div class="input-group-prepend">
-                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                          Action
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li class="dropdown-item"><a href="{{ url('admin/viewsingleteacher/'.$approves_teacher->ref_no) }}">View</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/editteacher/'.$approves_teacher->ref_no) }}">Edit</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teacherapprove/'.$approves_teacher->ref_no) }}">Approved</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teachersuspend/'.$approves_teacher->ref_no) }}">Suspend</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teachersacked/'.$approves_teacher->ref_no) }}">Sacked</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teacherquery/'.$approves_teacher->ref_no) }}">Query</a></li>
-                        </ul>
-                      </div></td>
-                       
+                    @foreach ($viewnursery_subjects as $viewnursery_subject)
+                        @if ($viewnursery_subject->section = 'Primary' || $viewnursery_subject->section = 'Nursery' || $viewnursery_subject->section = 'Pre-School' || $viewnursery_subject->section = 'Preparatory')
+                        <tr>
+                            <td>{{ $viewnursery_subject->subjectname }}</td>
+                            <td>{{ $viewnursery_subject->section }}</td>
+                         
+                          <th><a href="{{ url('admin/assignsubject/'.$viewnursery_subject->id) }}" class="btn btn-success"><i class="fas fa-user"></i></a></th>
+                            
+                         <td>{{ $viewnursery_subject->created_at->format('D d, M Y, H:i')}}</td>
+    
+                          </tr> 
+                        @else
+                            
+                        @endif
                      
-                      <th><a href="{{ url('admin/teachersprint') }}" class="btn btn-success"><i class="fas fa-print"></i></a></th>
-                       <td><a href="{{ url('admin/teacherdelete/'.$approves_teacher->ref_no) }}"
-                        class='btn btn-danger'>
-                         <i class="far fa-trash-alt"></i>
-                     </a></td>
-                        
-                     <td>{{ $approves_teacher->created_at->format('D d, M Y, H:i')}}</td>
-
-                      </tr>
-                      @else
-                        
-                      @endif
+                     
                     @endforeach
                  
                  
@@ -130,27 +80,11 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <th>Lastname</th>
-                      <th>Middlename</th>
-                      <th>First Name</th>
-                      <th>Images</th>
-  
-                      <th>Phone</th>
-                      <th>Centername</th>
-                      <th>Classname</th>
-                      <th>Section</th>
-                      <th>Entry Level</th>
-  
-                      <th>Email</th>
-  
-                     
-                      <th>Status</th>
-                      <th>Action</th>
-                     
-                      <th>Print</th>
-                      <th>Delete</th>
-                      <th>Date</th>
-                    </tr>
+                        <th>Subjects</th>
+                        <th>Centername</th>
+                        <th>Assign Teacher</th>
+                        <th>Date</th>
+                      </tr>
                     </tr>
                   </tfoot>
                 </table>
