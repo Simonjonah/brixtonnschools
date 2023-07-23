@@ -8,7 +8,7 @@
                     <div class="big-column col-lg-6 col-md-12 col-sm-12">
 						<div class="row clearfix">
 						
-                        	<!--Footer Column-->
+                        	<!--Footer Column   IMFI EMAIL PASSWORD imfiacacademy@12-->
                             <div class="footer-column col-lg-7 col-md-6 col-sm-12">
                                 <div class="footer-widget logo-widget">
 									<div class="logo">

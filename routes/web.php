@@ -155,6 +155,8 @@ Route::prefix('admin')->name('admin.')->group(function() {
     
     Route::middleware(['auth:admin'])->group(function() {
         
+        Route::get('viewteachersubjects/{user_id}', [TeacherassignController::class, 'viewteachersubjects'])->name('viewteachersubjects');
+        Route::get('teachertosubjects', [TeacherassignController::class, 'teachertosubjects'])->name('teachertosubjects');
         Route::post('assignsubjectstoteacher/{id}', [TeacherassignController::class, 'assignsubjectstoteacher'])->name('assignsubjectstoteacher');
         Route::get('assignsubject/{id}', [SubjectController::class, 'assignsubject'])->name('assignsubject');
         Route::get('deletesubject/{id}', [SubjectController::class, 'deletesubject'])->name('deletesubject');

@@ -541,16 +541,24 @@
               <li class="nav-item">
                 <a href="{{ route('admin.nurserysubjects') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p> Prim & Nursery Sub</p>
+                  <p>Assign Prim & Nursery Sub</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('admin.viewsubject') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>High School Sub</p>
+                  <p>Assign High School Sub</p>
                 </a>
               </li>
             
+
+              <li class="nav-item">
+                <a href="{{ route('admin.teachertosubjects') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Teacher to Subject</p>
+                </a>
+              </li>
+
             </ul>
           </li>
           <li class="nav-item has-treeview">
