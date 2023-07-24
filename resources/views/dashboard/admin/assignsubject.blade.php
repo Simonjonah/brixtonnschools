@@ -60,11 +60,20 @@
                       </div>
                  
                       <div class="form-group">
+                        <h5>Select Class  </h5>
+                        <select required class="form-control" type="text" name="classname">
+                          @foreach ($classnames as $classname)
+                            <option value="{{ $classname->classname }}">{{ $classname->classname }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+
+                      <div class="form-group">
                         <h5>Section </h5>
                         <select required class="form-control" type="text" name="section">
                           <option value="{{ $assigned_subject->section }}">{{ $assigned_subject->section }}</option>
                         </select>
-                    </div>
+                      </div>
 
                     <div class="form-group">
                       <h5>Select Teacher </h5>

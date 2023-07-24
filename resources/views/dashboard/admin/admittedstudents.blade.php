@@ -219,7 +219,7 @@
                         <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$admit_student->images")}}" alt=""></td>
                         <td><a href="{{ url('admin/addregno/'.$admit_student->id) }}"
                             class='btn btn-default'>
-                             <i class="far fa-eye">Add Reg No</i>
+                             <i class="far fa-eye">Admission No</i>
                          </a></td>
 
 

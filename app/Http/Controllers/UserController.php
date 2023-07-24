@@ -902,7 +902,17 @@ class UserController extends Controller
         return view('dashboard.admin.allteachers', compact('all_teachers'));
     }
     
-
+    public function uyoteachers(){
+        $view_uyoteachers = User::where('status', 'teacher')
+        ->where('centername', 'Uyo')->get();
+        return view('dashboard.admin.uyoteachers', compact('view_uyoteachers'));
+    }
+    public function abujateachers(){
+        $view_abujateachers = User::where('status', 'teacher')
+        ->where('centername', 'Abuja')->get();
+        return view('dashboard.admin.abujateachers', compact('view_abujateachers'));
+    }
+    
     
     public function logout(){
         Auth::guard('web')->logout();

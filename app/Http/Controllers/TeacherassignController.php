@@ -15,12 +15,14 @@ class TeacherassignController extends Controller
             'user_id' => ['required', 'string', 'max:255'],
             'subject_id' => ['required', 'string', 'max:255'],
             'section' => ['required', 'string', 'max:255'],
+            'classname' => ['required', 'string', 'max:255'],
 
         ]);
         $add_assignteacher = new Teacherassign();
         $add_assignteacher->user_id = $request->user_id;
         $add_assignteacher->subject_id = $request->subject_id;
         $add_assignteacher->section = $request->section;
+        $add_assignteacher->classname = $request->classname;
     
         $add_assignteacher->save();
 

@@ -550,8 +550,6 @@
                   <p>Assign High School Sub</p>
                 </a>
               </li>
-            
-
               <li class="nav-item">
                 <a href="{{ route('admin.teachertosubjects') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -561,7 +559,7 @@
 
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -610,7 +608,7 @@
               </li>
               
             </ul>
-          </li>
+          </li> --}}
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -660,7 +658,23 @@
                   <p>View all Teachers </p>
                 </a>
               </li>
+            
+              <li class="nav-item">
+                <a href="{{ route('admin.uyoteachers') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Uyo Teachers </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ route('admin.abujateachers') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Abuja Teachers </p>
+                </a>
+              </li>
+              
             </ul>
+
           </li>
 
           <li class="nav-item has-treeview">

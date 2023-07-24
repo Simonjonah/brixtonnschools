@@ -20,6 +20,7 @@ class SubjectController extends Controller
         $request->validate([
             'subjectname' => ['required', 'string', 'max:255'],
             'section' => ['required', 'string', 'max:255'],
+            
         ]);
         $addsubjects = new Subject();
         $addsubjects->subjectname = $request->subjectname;
@@ -51,9 +52,12 @@ class SubjectController extends Controller
         $request->validate([
             'subjectname' => ['required', 'string', 'max:255'],
             'section' => ['required', 'string', 'max:255'],
+            //'classname' => ['required', 'string', 'max:255'],
+            
         ]);
         $edit_subject->subjectname = $request->subjectname;
         $edit_subject->section = $request->section;
+       //$edit_subject->classname = $request->classname;
         $edit_subject->update();
         if ($edit_subject) {
             return redirect()->back()->with('success', 'you have successfully updated');
@@ -69,9 +73,9 @@ class SubjectController extends Controller
         ->whereNotIn('section', ['High School'])->get();
         $assigned_highschool_subjects = User::where('status', 'teacher')
         ->where('section', 'High School')->get();
-      
+        $classnames = Classname::all();
         
-        return view('dashboard.admin.assignsubject', compact('assigned_highschool_subjects', 'assigned_teacherto_subjects', 'assigned_subject'));
+        return view('dashboard.admin.assignsubject', compact('classnames', 'assigned_highschool_subjects', 'assigned_teacherto_subjects', 'assigned_subject'));
     }
 
     public function nurserysubjects(){
