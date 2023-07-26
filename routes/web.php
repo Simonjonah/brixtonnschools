@@ -155,6 +155,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
     
     Route::middleware(['auth:admin'])->group(function() {
         
+        Route::get('studentsubjects/{ref_no}', [UserController::class, 'studentsubjects'])->name('studentsubjects');
         Route::get('abujateachers', [UserController::class, 'abujateachers'])->name('abujateachers');
         Route::get('uyoteachers', [UserController::class, 'uyoteachers'])->name('uyoteachers');
         Route::get('viewteachersubjects/{user_id}', [TeacherassignController::class, 'viewteachersubjects'])->name('viewteachersubjects');
@@ -468,6 +469,7 @@ Route::prefix('web')->name('web.')->group(function() {
     Route::middleware(['auth:web'])->group(function() {
         Route::get('/home', [UserController::class, 'home'])->name('home');
         Route::put('/assignstudentclass/{ref_no}', [UserController::class, 'assignstudentclass'])->name('assignstudentclass');
+        Route::get('addresults/{ref_no}', [UserController::class, 'addresults'])->name('addresults');
         
         Route::get('/premiumterm', [UserController::class, 'premiumterm'])->name('premiumterm');
         Route::get('/pioneerterm', [UserController::class, 'pioneerterm'])->name('pioneerterm');

@@ -49,6 +49,7 @@
                     <th>Images</th>
                     <th>Status</th>
                     <th>Action</th>
+                    <th>Add Results</th>
                     
                   </tr>
                   </thead>
@@ -70,6 +71,11 @@
                           <td><a href="{{ url('web/assignedstudent/'.$view_term->ref_no) }}"
                             class='btn btn-default'>
                              <i class="far fa-eye"></i>
+
+                             <td><a href="{{ url('web/addresults/'.$view_term->ref_no) }}"
+                              class='btn btn-info'>
+                               Add Results
+                           </a></td>
                          </a></td>
                         </tr>
                     @else
@@ -91,6 +97,7 @@
                       <th>Images</th>
                       <th>Status</th>
                       <th>Action</th>
+                      <th>Add Results</th>
                       
                     </tr>
                   </tfoot>

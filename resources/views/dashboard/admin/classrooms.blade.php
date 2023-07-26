@@ -45,15 +45,15 @@
                       <th>Status</th>
                       <th>Actions</th>
   
-                      <th>Reg No</th>
-                      <th>Ref. No</th>
+                      <th>Admit No</th>
+                      <th>Form No</th>
                       <th>Edit</th>
                       <th>Reject</th>
                       <th>Assigned </th>
                       <th>Suspend</th>
                       <th>Admit</th>
                       
-                      {{-- <th>Send to IT</th> --}}
+                      <th>View Subjects</th>
                       <th>Delete</th>
                       {{-- <th>I.T Status</th> --}}
   
@@ -123,7 +123,9 @@
                           <i class="fas fa-user"></i> 
                         </a></th>
                         
-                      
+                        <th> <a href="{{ url('admin/studentsubjects/'.$view_classstudent->ref_no) }}" class="btn btn-sm btn-secondary">
+                          Subjects 
+                        </a></th>
                         {{-- <th><a href="{{ url('admin/studentit/'.$view_classstudent->ref_no) }}" class="btn btn-info"><i class="fas fa-user"></i> IT</a></th> --}}
                         <td><a href="{{ url('admin/deletestudent/'.$view_classstudent->ref_no) }}"
                           class='btn btn-danger'>
@@ -143,25 +145,26 @@
                       <th>Subjects</th>
                       <th>Lastname</th>
                       <th>Term</th>
-
                       <th>Images</th>
                       <th>View</th>
                       <th>Status</th>
                       <th>Actions</th>
   
-                      <th>Reg No</th>
-                      <th>Ref. No</th>
+                      <th>Admit No</th>
+                      <th>Form No</th>
                       <th>Edit</th>
                       <th>Reject</th>
                       <th>Assigned </th>
                       <th>Suspend</th>
                       <th>Admit</th>
                       
-                      {{-- <th>Send to IT</th> --}}
+                      <th>View Subjects</th>
                       <th>Delete</th>
                       {{-- <th>I.T Status</th> --}}
   
                       <th>Date</th>
+  
+                    </tr>
   
                     </tr>
                   </tfoot>
@@ -184,20 +187,23 @@
                       <th>Subjects</th>
                       <th>Lastname</th>
                       <th>Term</th>
-
                       <th>Images</th>
                       <th>View</th>
                       <th>Status</th>
                       <th>Actions</th>
   
-                      <th>Reg No</th>
-                      <th>Ref. No</th>
+                      <th>Admit No</th>
+                      <th>Form No</th>
                       <th>Edit</th>
                       <th>Reject</th>
                       <th>Assigned </th>
                       <th>Suspend</th>
                       <th>Admit</th>
+                      
+                      <th>View Subjects</th>
                       <th>Delete</th>
+                      {{-- <th>I.T Status</th> --}}
+  
                       <th>Date</th>
   
                     </tr>
@@ -253,7 +259,9 @@
                     <th> <a href="{{ url('admin/studentsaddmit/'.$view_student_abuja->ref_no) }}" class="btn btn-sm btn-primary">
                       <i class="fas fa-user"></i> 
                     </a></th>
-                    
+                    <th> <a href="{{ url('admin/studentsubjects/'.$view_student_abuja->ref_no) }}" class="btn btn-sm btn-primary">
+                      <i class="fas fa-user"></i> 
+                    </a></th>
                   
                     {{-- <th><a href="{{ url('admin/studentit/'.$view_student_abuja->ref_no) }}" class="btn btn-info"><i class="fas fa-user"></i> IT</a></th> --}}
                     <td><a href="{{ url('admin/deletestudent/'.$view_student_abuja->ref_no) }}"
@@ -275,20 +283,23 @@
                       <th>Subjects</th>
                       <th>Lastname</th>
                       <th>Term</th>
-
                       <th>Images</th>
                       <th>View</th>
                       <th>Status</th>
                       <th>Actions</th>
   
-                      <th>Reg No</th>
-                      <th>Ref. No</th>
+                      <th>Admit No</th>
+                      <th>Form No</th>
                       <th>Edit</th>
                       <th>Reject</th>
                       <th>Assigned </th>
                       <th>Suspend</th>
                       <th>Admit</th>
+                      
+                      <th>View Subjects</th>
                       <th>Delete</th>
+                      {{-- <th>I.T Status</th> --}}
+  
                       <th>Date</th>
   
                     </tr>

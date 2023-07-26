@@ -27,6 +27,8 @@
     <h1>{{ Auth::guard('web')->user()->fname }}, You have been suspended</h1>
     @elseif (Auth::guard('web')->user()->status == 'reject')
     <h1>{{ Auth::guard('web')->user()->fname }}, You have been rejected</h1>
+    @elseif (Auth::guard('web')->user()->status == 'teacher')
+    <h1>{{ Auth::guard('web')->user()->fname }}</h1>
     @elseif (Auth::guard('web')->user()->status == 'admitted')
       <!-- Main content -->
     <section class="content">
@@ -186,7 +188,7 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    @elseif (Auth::guard('web')->user()->role == 'teacher' AND Auth::guard('web')->user()->status == 'teacher')
+    @elseif (Auth::guard('web')->user()->role == 'teacher' AND Auth::guard('web')->user()->status == 'approved')
     
 <section class="content">
   <div class="container-fluid">
@@ -346,8 +348,7 @@
 </section>
 @else
 
-<h1>no</h1>
-    @endif
+@endif
 
     
     <!-- /.content -->

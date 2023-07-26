@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Classname;
 use App\Models\Studycenter;
+use App\Models\Subject;
+use App\Models\Teacherassign;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -912,7 +914,18 @@ class UserController extends Controller
         ->where('centername', 'Abuja')->get();
         return view('dashboard.admin.abujateachers', compact('view_abujateachers'));
     }
-    
+    public function studentsubjects($ref_no){
+        $view_studentsubjects = User::where('ref_no', $ref_no)->first();
+        $view_subjects = Subject::where('section', 'Primary')->get();
+        return view('dashboard.admin.studentsubjects', compact('view_studentsubjects', 'view_subjects'));
+    }
+
+
+    public function addresults($ref_no){
+        $view_studentsubject = User::where('ref_no', $ref_no)->first();
+        $view_subjects = Teacherassign::where('user_id', auth::guard('web')->id())->get();
+        return view('dashboard.addresults', compact('view_studentsubject', 'view_subjects'));
+    }
     
     public function logout(){
         Auth::guard('web')->logout();
