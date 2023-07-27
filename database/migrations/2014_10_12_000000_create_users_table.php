@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('fname', 50);
             $table->string('phone', 20);
             $table->string('section', 50)->nullable();
+            $table->string('academic_session', 15)->nullable();
             $table->string('dob', 20)->nullable();
             $table->string('gender', 10)->nullable();
             $table->string('monthofentry', 20)->nullable();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Studycenter;
 use App\Models\Classname;
+use App\Models\Academicsession;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -73,7 +74,10 @@ class StudycenterController extends Controller
     public function admissionform($slug){
         $centerviews = Studycenter::where('slug', $slug)->first();
         $add_class = Classname::all();
-        return view('pages.admissionform', compact('add_class', 'centerviews'));
+
+        $view_sessions = Academicsession::orderBy('created_at', 'DESC')
+        ->take(1)->get();
+        return view('pages.admissionform', compact('view_sessions', 'add_class', 'centerviews'));
         
     }
     

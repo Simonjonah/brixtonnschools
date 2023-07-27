@@ -31,6 +31,8 @@ class UserController extends Controller
             'religion' => ['required', 'string'],
             'entrylevel' => ['required', 'string'],
             'password' => ['required', 'string'],
+            'academic_session' => ['required', 'string'],
+            
             'images' => 'nullable|mimes:jpg,png,jpeg'
         ]);
         if ($request->hasFile('images')){
@@ -59,6 +61,8 @@ class UserController extends Controller
         $add_adimission->state = $request->state;
         $add_adimission->entrylevel = $request->entrylevel;
         $add_adimission->classname = $request->classname;
+        $add_adimission->academic_session = $request->academic_session;
+        
         $add_adimission->password = \Hash::make($request->password);
         $add_adimission->ref_no = substr(rand(0,time()),0, 9);
 
@@ -101,6 +105,7 @@ class UserController extends Controller
             'motheremployer' => ['required', 'string'],
             'motheremail' => ['required', 'string'],
             'motheraddress' => ['required', 'string'],
+
             
         ]);
       

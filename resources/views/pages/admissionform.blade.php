@@ -81,7 +81,14 @@
 									<h5>State of Origin</h5>
 									<input class="form-control" type="text" name="state" value="" placeholder="State" required="">
 								</div>
-							
+								<div class="form-group">
+									<h5>Academy Session</h5>
+									<select class="form-control" name="academic_session" id="">
+										@foreach ($view_sessions as $view_session)
+										<option value="{{ $view_session->academic_session }}">{{ $view_session->academic_session }}</option>
+										@endforeach
+									</select>
+								</div>
 						</div>
 					</div>
 					

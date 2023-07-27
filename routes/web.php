@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AcademicsessionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Route;
@@ -20,9 +21,10 @@ use App\Http\Controllers\ClassnameController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\MainsliderController;
+use App\Http\Controllers\ResultController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherassignController;
-
+use App\Models\Academicsession;
 use App\Models\Team;
 use App\Models\Event;
 use App\Models\Blog;
@@ -155,6 +157,12 @@ Route::prefix('admin')->name('admin.')->group(function() {
     
     Route::middleware(['auth:admin'])->group(function() {
         
+        Route::get('academedelete/{id}', [AcademicsessionController::class, 'academedelete'])->name('academedelete');
+        Route::put('updatesession/{id}', [AcademicsessionController::class, 'updatesession'])->name('updatesession');
+        Route::get('academedit/{id}', [AcademicsessionController::class, 'academedit'])->name('academedit');
+        Route::get('viewsession', [AcademicsessionController::class, 'viewsession'])->name('viewsession');
+        Route::post('createsession', [AcademicsessionController::class, 'createsession'])->name('createsession');
+        Route::get('addsession', [AcademicsessionController::class, 'addsession'])->name('addsession');
         Route::get('studentsubjects/{ref_no}', [UserController::class, 'studentsubjects'])->name('studentsubjects');
         Route::get('abujateachers', [UserController::class, 'abujateachers'])->name('abujateachers');
         Route::get('uyoteachers', [UserController::class, 'uyoteachers'])->name('uyoteachers');
@@ -467,7 +475,10 @@ Route::prefix('web')->name('web.')->group(function() {
     });
     
     Route::middleware(['auth:web'])->group(function() {
+
         Route::get('/home', [UserController::class, 'home'])->name('home');
+        
+        Route::post('/createresults/{ref_no}', [ResultController::class, 'createresults'])->name('createresults');
         Route::put('/assignstudentclass/{ref_no}', [UserController::class, 'assignstudentclass'])->name('assignstudentclass');
         Route::get('addresults/{ref_no}', [UserController::class, 'addresults'])->name('addresults');
         

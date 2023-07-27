@@ -559,56 +559,30 @@
 
             </ul>
           </li>
-          {{-- <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Programs
+                Session
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('admin.addcource') }}" class="nav-link">
+                <a href="{{ route('admin.addsession') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>CERT1, D1, MT Programs</p>
+                  <p>Add Session</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('admin.professionals') }}" class="nav-link">
+                <a href="{{ route('admin.viewsession') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Prof Programs</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('admin.nsq') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>NSQ Programs</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('admin.addnid') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>NID Programs</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{ route('admin.imficca') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add IMFI-CCA Programs</p>
-                </a>
-              </li>
-              
-              <li class="nav-item">
-                <a href="{{ route('admin.viewcourses') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View Programs</p>
+                  <p>View Session</p>
                 </a>
               </li>
               
             </ul>
-          </li> --}}
+          </li>
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

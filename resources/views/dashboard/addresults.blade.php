@@ -97,7 +97,7 @@
                             <tbody>
                                 @foreach ($view_subjects as $view_subject)
                                 <tr>
-                                    <td>{{ $view_subject->subject['subjectname'] }}</td>
+                                    <td><input type="text" name="subjectname" value="{{ $view_subject->subject['subjectname'] }}" placeholder="Subjects"></td>
                                     <td><input type="number" class="form-control" name="test_1" placeholder="Test 1"></td>
                                     <td><input type="number" class="form-control" name="test_2" placeholder="Test 2"></td>
                                     <td><input type="number" class="form-control" name="test_3" placeholder="Test 3"></td>
@@ -133,6 +133,8 @@
                       </tr>
                       <tr>
                         <th>Punctuality</th>
+                        <td><input type="number" value="{{ $view_studentsubject->id }}" class="form-control" name="user_id" placeholder="Exams"></td>
+
                         <td><input type="checkbox" name="punt1" value="Yes" id=""></td>
                         <td><input type="checkbox" name="punt2" value="Yes" id=""></td>
                         <td><input type="checkbox" name="punt3" value="Yes" id=""></td>
@@ -344,7 +346,9 @@
                 </button>
                 
                 @else
-                <form action="" method="post">
+                <form action="{{ url('web/createresults/'.$view_studentsubject->ref_no) }}" method="post">
+                  @csrf
+
                   <table class="table table-striped">
                       <thead>
                       <tr>
@@ -360,11 +364,12 @@
                       <tbody>
                           @foreach ($view_subjects as $view_subject)
                           <tr>
-                              <td>{{ $view_subject->subject['subjectname'] }}</td>
-                              <td><input type="number" class="form-control" name="test_1" placeholder="Test 1"></td>
+                              <td><input type="text" value="{{ $view_subject->subject['subjectname'] }}" name="subjectname[]" id=""></td>
+                              <td><input type="number" class="form-control" name="test_1[]" placeholder="Test 1"></td>
                               <td><input type="number" class="form-control" name="test_2" placeholder="Test 2"></td>
                               <td><input type="number" class="form-control" name="test_3" placeholder="Test 3"></td>
                               <td><input type="number" class="form-control" name="exams" placeholder="Exams"></td>
+                              
                             </tr>
                           @endforeach
                       
