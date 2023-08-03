@@ -6,6 +6,8 @@ use App\Models\Classname;
 use App\Models\Studycenter;
 use App\Models\Subject;
 use App\Models\Teacherassign;
+use App\Models\Result;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -926,11 +928,15 @@ class UserController extends Controller
     }
 
 
-    public function addresults($ref_no){
-        $view_studentsubject = User::where('ref_no', $ref_no)->first();
-        $view_subjects = Teacherassign::where('user_id', auth::guard('web')->id())->get();
-        return view('dashboard.addresults', compact('view_studentsubject', 'view_subjects'));
+    public function addresults($id){
+        $view_studentsubject = User::find($id);
+        $view_teachersubjects = Teacherassign::where('user_id', auth::guard('web')->id())
+        ->get();
+        return view('dashboard.addresults', compact('view_studentsubject', 'view_teachersubjects'));
     }
+
+
+   
     
     public function logout(){
         Auth::guard('web')->logout();

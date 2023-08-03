@@ -72,7 +72,7 @@
                             class='btn btn-default'>
                              <i class="far fa-eye"></i>
 
-                             <td><a href="{{ url('web/addresults/'.$view_term->ref_no) }}"
+                             <td><a href="{{ url('web/addresults/'.$view_term->id) }}"
                               class='btn btn-info'>
                                Add Results
                            </a></td>

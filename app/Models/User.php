@@ -52,4 +52,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Teacherassign::class);
     }
+
+    public function results(): HasMany 
+    {
+        return $this->hasMany(Result::class);
+    }
+
+    
 }

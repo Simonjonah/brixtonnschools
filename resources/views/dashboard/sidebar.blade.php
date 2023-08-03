@@ -424,9 +424,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('web.paymenthistory') }}" class="nav-link">
+                <a href="{{ url('web/pioneertermresults') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Payments History</p>
+                  <p>Pioneer Term</p>
                 </a>
               </li>
             
@@ -436,7 +436,7 @@
           
           <li class="nav-header">ADMIMISSION</li>
           <li class="nav-item">
-            <a href="{{ url('web/admisionletter') }}" class="nav-link">
+            <a href="{{ url('/web/admisionletter') }}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>Admission Letter</p>
             </a>

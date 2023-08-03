@@ -21,6 +21,7 @@ use App\Http\Controllers\ClassnameController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\MainsliderController;
+use App\Http\Controllers\PsycomotorController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherassignController;
@@ -478,10 +479,13 @@ Route::prefix('web')->name('web.')->group(function() {
 
         Route::get('/home', [UserController::class, 'home'])->name('home');
         
-        Route::post('/createresults/{ref_no}', [ResultController::class, 'createresults'])->name('createresults');
+        Route::post('/createpsychomotoro/{ref_no}', [PsycomotorController::class, 'createpsychomotoro'])->name('createpsychomotoro');
+        Route::post('/createresults/{id}', [ResultController::class, 'createresults'])->name('createresults');
         Route::put('/assignstudentclass/{ref_no}', [UserController::class, 'assignstudentclass'])->name('assignstudentclass');
-        Route::get('addresults/{ref_no}', [UserController::class, 'addresults'])->name('addresults');
+        Route::get('addresults/{id}', [UserController::class, 'addresults'])->name('addresults');
         
+        Route::get('/teacherviewresults/{user_id}', [ResultController::class, 'teacherviewresults'])->name('teacherviewresults');
+        Route::get('/pioneertermresults', [ResultController::class, 'pioneertermresults'])->name('pioneertermresults');
         Route::get('/premiumterm', [UserController::class, 'premiumterm'])->name('premiumterm');
         Route::get('/pioneerterm', [UserController::class, 'pioneerterm'])->name('pioneerterm');
         Route::get('/penultimateterm', [UserController::class, 'penultimateterm'])->name('penultimateterm');
