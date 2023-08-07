@@ -154,7 +154,7 @@
   </nav>
   <!-- /.navbar -->
 
-  @include('dashboard.student.sidebar')
+  @include('dashboard.sidebar')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -188,7 +188,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{ route('student.yourresult') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('web.yourresult') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if (Session::get('success'))
                 <div class="alert alert-success">
@@ -222,9 +222,9 @@
 
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Year</label>
-                    <select name="resultsyear" class="form-control" id="">
+                    <select name="academic_session" class="form-control" id="">
                       @foreach ($the_results as $the_result)
-                      <option value="{{ $the_result->resultsyear }}">{{ $the_result->resultsyear }}</option>
+                      <option value="{{ $the_result->academic_session }}">{{ $the_result->academic_session }}</option>
                       @endforeach
                     </select>
                     

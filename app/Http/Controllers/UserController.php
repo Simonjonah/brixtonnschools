@@ -935,7 +935,35 @@ class UserController extends Controller
         return view('dashboard.addresults', compact('view_studentsubject', 'view_teachersubjects'));
     }
 
+    public function changeclasses ($ref_no){
+        $assign_classestoTeacher = User::where('ref_no', $ref_no)->first();
+        $view_centernames = Studycenter::all();
+        $classnames = Classname::all();
+        return view('dashboard.admin.changeclasses', compact('classnames', 'view_centernames', 'assign_classestoTeacher'));
+    }
+    
+    public function changgeteacherclass (Request $request, $id){
+        $change_classestoTeacher = User::find($id);
+        $request->validate([
+            'classname' => ['required', 'string', 'max:255'],
+            'centername' => ['required', 'string', 'max:255'],
+            'entrylevel' => ['required', 'string'],
+            'section' => ['required', 'string'],
+        ]);
+      
+        $change_classestoTeacher->classname = $request->classname;
+        $change_classestoTeacher->centername = $request->centername;
+        $change_classestoTeacher->entrylevel = $request->entrylevel;
+        $change_classestoTeacher->section = $request->section;
+        $change_classestoTeacher->update();
+        if ($change_classestoTeacher) {
+            return redirect()->back()->with('success', 'you have added successfully');
+            
+        }else{
+            return redirect()->back()->with('fail', 'you have not added successfully');
+        }
 
+    }
    
     
     public function logout(){

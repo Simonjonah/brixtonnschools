@@ -627,6 +627,13 @@
               </li>
 
               <li class="nav-item">
+                <a href="{{ route('admin.queriedteachersreply') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View  Query Replied </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
                 <a href="{{ route('admin.allteachers') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View all Teachers </p>

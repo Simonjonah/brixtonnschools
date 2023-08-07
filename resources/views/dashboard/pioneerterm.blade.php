@@ -61,8 +61,10 @@
                           <td>{{ $view_term->fname }}</td>
                           <td>{{ $view_term->middlename }}</td>
                           <td>{{ $view_term->surname }}</td>
+
                           <td> {{ $view_term->centername }}</td>
                           <td> {{ $view_term->classname }}</td>
+                          
                           <td> {{ $view_term->entrylevel }}</td>
                           <td> {{ $view_term->gender }}</td>
                           <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_term->images")}}" alt=""></td>

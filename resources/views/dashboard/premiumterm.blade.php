@@ -10,7 +10,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>Premium Term</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -67,10 +67,16 @@
                           <td> {{ $view_term->gender }}</td>
                           <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_term->images")}}" alt=""></td>
                           <td> <span class="badge badge-success">{{ $view_term->status }}</span></td>
-                          <td><a href="{{ url('web/assignedstudent/'.$view_term->centername) }}"
+                          <td><a href="{{ url('web/assignedstudent/'.$view_term->ref_no) }}"
                             class='btn btn-default'>
                              <i class="far fa-eye"></i>
-                         </a></td>
+                      
+                        </tr>
+
+                        <td><a href="{{ url('web/addresults/'.$view_term->id) }}"
+                          class='btn btn-info'>
+                           Add Results
+                       </a></td>
                         </tr>
                     @else
                     @endif

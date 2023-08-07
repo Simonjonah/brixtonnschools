@@ -42,6 +42,7 @@
                     <th>Firstname</th>
                     <th>Middlename</th>
                     <th>Admission No</th>
+                    <th>Psycomotor</th>
                     <th>Ref. No</th>
                     <th>CA 1</th>
                     <th>CA 2</th>
@@ -67,13 +68,11 @@
                         <td>{{ $view_myresult->user['fname'] }}</td>
                         <td>{{ $view_myresult->user['middlename'] }}</td>
                         <td>{{ $view_myresult->user['regnumber'] }}</td>
-                        {{-- <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_myresult->images")}}" alt=""></td> --}}
-                        {{-- <td><a href="{{ url('admin/viewstudents/'.$view_myresult->ref_no) }}"
-                            class='btn btn-default'>
-                             <i class="far fa-eye"></i>
-                         </a></td>
-                          --}}
-                        
+                        <td><a href="{{ url('web/addpsychomotor/'.$view_myresult->id) }}"
+                          class='btn btn-default'>
+                          Add Psycomotor
+                           <i class="far fa-eye"></i>
+
                        
 
                       <td>{{ $view_myresult->user['ref_no'] }}</td>
@@ -147,6 +146,8 @@
                       <th>Firstname</th>
                       <th>Middlename</th>
                       <th>Admission No</th>
+                      <th>Psycomotor</th>
+
                       <th>Ref. No</th>
                       <th>CA 1</th>
                       <th>CA 2</th>

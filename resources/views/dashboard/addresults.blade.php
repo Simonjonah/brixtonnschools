@@ -146,8 +146,8 @@
                               <td><input type="hidden" name="teacher_id[]" value="{{ Auth::guard('web')->user()->id }}" placeholder="Teacher ID"></td>
                               <td><input type="hidden" name="user_id[]" value="{{ $view_studentsubject->id }}" placeholder="ID"></td>
                               <td><input type="hidden" name="entrylevel[]" value="{{ $view_studentsubject->entrylevel }}" placeholder="Entrylevel"></td>
-                              {{-- <td><input type="hidden" name="user_id[]" value="{{ $view_studentsubject->id }}" placeholder="ID"></td> --}}
-                              {{-- <td><input type="hidden" name="user_id[]" value="{{ $view_studentsubject->id }}" placeholder="ID"></td> --}}
+                              <td><input type="hidden" name="academic_session[]" value="{{ $view_studentsubject->academic_session }}" placeholder="academic_session"></td>
+                              <td><input type="hidden" name="regnumber[]" value="{{ $view_studentsubject->regnumber }}" placeholder="regnumber"></td>
                               {{-- <td><input type="hidden" name="user_id[]" value="{{ $view_teachersubject->user['id'] }}" placeholder="ID"></td>
                               <td><input type="text" name="fname[]" value="{{ $view_teachersubject->user['fname'] }}" placeholder="First name"></td>
                               <td><input type="text" name="surname[]" value="{{ $view_teachersubject->user['surname'] }}" placeholder="Surname"></td>
@@ -254,9 +254,11 @@
                 <div class="table-responsive">
                   {{-- <p class="lead">Behaviour</p> --}}
     
-                  <form action="{{ url('web/createpsychomotoro/'.$view_studentsubject->ref_no) }}" method="post">
+                  <form action="{{ url('web/createpsychomotoro/'.$view_studentsubject->id) }}" method="post">
                     @csrf
-                      <table class="table table-bordered">
+
+                    @method('PUT')
+                      {{-- <table class="table table-bordered">
                         <tr>
                           <th style="width:50%">BEHAVIOUR:</th>
                           <th style="width:50%">A</th>
@@ -265,8 +267,7 @@
                           <th style="width:50%">D</th>
                           <th style="width:50%">E</th>
                         </tr>
-                        <td><input type="hidden" name="user_id" value="{{ $view_studentsubject->id }}" id=""></td>
-    
+                     
                         <tr>
                           <th>Punctuality</th>
                           <td><input type="checkbox" name="punt1" value="Yes" id=""></td>
@@ -361,7 +362,7 @@
                       </table>
                       <div class="form-group">
                           <textarea class="form-control" name="teacher_comment" id="" cols="20" rows="5" placeholder="Teacher's Comment"></textarea>
-                      </div>
+                      </div> --}}
                 </div>
                
               </div>
@@ -371,7 +372,7 @@
                   <strong>Goal Completion</strong>
                 </p>
 
-                <div class="table-responsive">
+                {{-- <div class="table-responsive">
                   <table class="table">
                     <tr>
                       <th style="width:50%">PSYCHOMOTOR SKILLS:</th>
@@ -435,7 +436,7 @@
                   
                   </table>
     
-                </div>
+                </div> --}}
                 <table class="table table-bordered">
                   <tr>
                     <th style="width:50%"></th>
@@ -467,9 +468,9 @@
                   
                 </table>
               </div>
-              <button type="submit" class="btn btn-success"><i class="far fa-bell"></i> Submit
+              {{-- <button type="submit" class="btn btn-success"><i class="far fa-bell"></i> Submit
                 Submit 
-              </button>
+              </button> --}}
               <!-- /.col -->
             </div>
             <!-- /.row -->

@@ -31,7 +31,7 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title" style="color: red">Uyo Study Center</h3>
+                <h3 class="card-title" style="color: red">Query Tables</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -73,7 +73,7 @@
                     {{ Session::get('fail') }}
                     @endif
                     @foreach ($queried_teachers as $queried_teacher)
-                      @if ($queried_teacher->user['status'] === 'teacher')
+                      {{-- @if ($queried_teacher->user['status'] === 'teacher') --}}
                       <tr>
                         <td>{{ $queried_teacher->user['surname'] }}</td>
                         <td>{{ $queried_teacher->user['middlename'] }}</td>
@@ -110,9 +110,9 @@
                      <td>{{ $queried_teacher->created_at->format('D d, M Y, H:i')}}</td>
 
                       </tr>
-                      @else
+                      {{-- @else
                         
-                      @endif
+                      @endif --}}
                     @endforeach
                  
                  

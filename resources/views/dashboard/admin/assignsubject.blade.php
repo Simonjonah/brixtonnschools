@@ -75,6 +75,17 @@
                         </select>
                       </div>
 
+                      {{-- <div class="form-group">
+                        <h5>Term</h5>
+                        <select name="entrylevel" class="form-control"  id="">
+                          <option value="{{ $assigned_subject->entrylevel }}">{{ $assigned_subject->entrylevel }}</option>
+
+                          <option value="Pioneer Term">Pioneer Term</option>
+                          <option value="Penultimate Term">Penultimate Term</option>
+                          <option value="Premium Term">Premium Term</option>
+                        </select>
+                      </div> --}}
+
                     <div class="form-group">
                       <h5>Select Teacher </h5>
                       <select required class="form-control" type="text" name="user_id">

@@ -68,7 +68,7 @@
               <div class="card-header">
                 <h3 class="card-title">
                   Query
-                  <small>{{ $query_singteachers->fname }} {{ $query_singteachers->surname }}</small>
+                  <small>{{ $view_query->fname }} {{ $view_query->surname }}</small>
                 </h3>
                 <!-- tools box -->
                 <div class="card-tools">
@@ -83,7 +83,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body pad">
-                <form action="{{ url('admin/addquerytoteacher/'.$query_singteachers->ref_no) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ url('admin/addquerytoteacher/'.$view_query->ref_no) }}" method="post" enctype="multipart/form-data">
                   @csrf
                 
                  
@@ -92,7 +92,7 @@
                       </div>
                     <div class="mb-3">
                       <textarea name="messages" class="textarea" placeholder="Place some text here"
-                                style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{!! $view_query->messages !!}</textarea>
                     </div>
 
                     <div class="form-group">

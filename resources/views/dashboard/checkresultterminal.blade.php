@@ -1,6 +1,6 @@
-@include('dashboard.student.header')
+@include('dashboard.header')
 
-  @include('dashboard.student.sidebar')
+  @include('dashboard.sidebar')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -24,7 +24,7 @@
 <div class="card-body">
   <div id="accordion">
     <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
-    @if (Auth::guard('student')->user()->programname == 'Certificate in Data Processing')
+   
     <div class="card card-primary">
       <div class="card-header">
         <h4 class="card-title">
@@ -36,69 +36,18 @@
       <div id="collapseOne" class="panel-collapse collapse in">
         <div class="card-body">
          
-          <a class="dropdown-item" tabindex="-1" href="{{ route('student.checkresult') }}">Certificate in Data Processing</a>
+          <a class="dropdown-item" tabindex="-1" href="{{ route('web.checkresult') }}">Certificate in Data Processing</a>
         </div>
       </div>
     </div>
    
-    @elseif(Auth::guard('student')->user()->programname == 'Diploma in Data Processing'){}
+   
       
     <div id="accordion">
       <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
-      <div class="card card-info">
-        <div class="card-header">
-          <h4 class="card-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-              Diploma in Data Processing
-            </a>
-          </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse in">
-          <div class="card-body">
-            <a class="dropdown-item" tabindex="-1" href="{{ route('student.checkresultd1') }}">Diploma in Data Processing</a>
-
-          </div>
-        </div>
-      </div>
-      @elseif (Auth::guard('student')->user()->programname == 'Diploma in Hardware maintenance and Repairs')
-        
-    <div id="accordion">
-      <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
-      <div class="card card-success">
-        <div class="card-header">
-          <h4 class="card-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-             Diploma in Hardware maintenance and Repairs
-            </a>
-          </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse in">
-          <div class="card-body">
-            <a class="dropdown-item" tabindex="-1" href="{{ route('student.checkresultmt1') }}">Diploma in Hardware & Maint </a>
-
-          </div>
-        </div>
-      </div>
-
-      @else
-      <div id="accordion">
-        <div class="card card-secondary">
-          <div class="card-header">
-            <h4 class="card-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-               NID Programs
-              </a>
-            </h4>
-          </div>
-          <div id="collapseFour" class="panel-collapse collapse in">
-            <div class="card-body">
-              <a class="dropdown-item" tabindex="-1" href="{{ route('student.checkresultnid') }}">NID </a>
-  
-            </div>
-          </div>
-        </div>
-
-    @endif
+   
+       
+ 
     
   </div>
     

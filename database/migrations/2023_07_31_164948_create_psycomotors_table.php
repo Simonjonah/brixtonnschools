@@ -111,10 +111,8 @@ return new class extends Migration
             $table->string('dance3', 5)->nullable();
             $table->string('dance4', 5)->nullable();
             $table->string('dance5', 5)->nullable();
-
-            
             $table->text('teacher_comment')->nullable();
-
+            $table->text('entrylevel')->nullable();
             $table->timestamps();
         });
     }

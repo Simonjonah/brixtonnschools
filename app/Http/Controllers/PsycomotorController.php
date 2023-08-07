@@ -24,6 +24,8 @@ class PsycomotorController extends Controller
 
         $add_assignteacher = new Psycomotor();
         $add_assignteacher->user_id = $request->user_id;
+        $add_assignteacher->entrylevel = $request->entrylevel;
+        
         $add_assignteacher->teacher_id = Auth::guard('web')->user()->id;
         $add_assignteacher->punt1 = $request->punt1;
         $add_assignteacher->punt2 = $request->punt2;

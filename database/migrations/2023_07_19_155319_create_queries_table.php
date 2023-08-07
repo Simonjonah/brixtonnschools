@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('querytitle')->nullable();
             $table->text('messages')->nullable();
           
+            $table->string('status')->nullable();
 
             $table->timestamps();
         });

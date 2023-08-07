@@ -158,6 +158,10 @@ Route::prefix('admin')->name('admin.')->group(function() {
     
     Route::middleware(['auth:admin'])->group(function() {
         
+        
+        Route::put('changgeteacherclass/{id}', [UserController::class, 'changgeteacherclass'])->name('changgeteacherclass');
+        Route::get('changeclasses/{ref_no}', [UserController::class, 'changeclasses'])->name('changeclasses');
+        Route::get('queriedteachersreply', [QueryController::class, 'queriedteachersreply'])->name('queriedteachersreply');
         Route::get('academedelete/{id}', [AcademicsessionController::class, 'academedelete'])->name('academedelete');
         Route::put('updatesession/{id}', [AcademicsessionController::class, 'updatesession'])->name('updatesession');
         Route::get('academedit/{id}', [AcademicsessionController::class, 'academedit'])->name('academedit');
@@ -479,11 +483,24 @@ Route::prefix('web')->name('web.')->group(function() {
 
         Route::get('/home', [UserController::class, 'home'])->name('home');
         
-        Route::post('/createpsychomotoro/{ref_no}', [PsycomotorController::class, 'createpsychomotoro'])->name('createpsychomotoro');
+        Route::get('/checkresult', [ResultController::class, 'checkresult'])->name('checkresult');
+        Route::get('/checkresultterminal', [ResultController::class, 'checkresultterminal'])->name('checkresultterminal');
+        Route::get('/teacherviewresults3rd/{id}', [ResultController::class, 'teacherviewresults3rd'])->name('teacherviewresults3rd');
+        Route::get('/premiumtermresults', [ResultController::class, 'premiumtermresults'])->name('premiumtermresults');
+        Route::get('/teacherviewresults2nd/{id}', [ResultController::class, 'teacherviewresults2nd'])->name('teacherviewresults2nd');
+        Route::get('/pensulatermresults', [ResultController::class, 'pensulatermresults'])->name('pensulatermresults');
+        Route::get('/addpsychomotor/{user_id}', [ResultController::class, 'addpsychomotor'])->name('addpsychomotor');
+        Route::put('/createpsychomotoro/{id}', [ResultController::class, 'createpsychomotoro'])->name('createpsychomotoro');
         Route::post('/createresults/{id}', [ResultController::class, 'createresults'])->name('createresults');
         Route::put('/assignstudentclass/{ref_no}', [UserController::class, 'assignstudentclass'])->name('assignstudentclass');
         Route::get('addresults/{id}', [UserController::class, 'addresults'])->name('addresults');
         
+        Route::get('/queryrepliedview', [QueryController::class, 'queryrepliedview'])->name('queryrepliedview');
+        Route::get('/printquery1/{id}', [QueryController::class, 'printquery1'])->name('printquery1');
+        Route::put('/replyquery/{id}', [QueryController::class, 'replyquery'])->name('replyquery');
+        Route::get('/viewqueryreply/{id}', [QueryController::class, 'viewqueryreply'])->name('viewqueryreply');
+        Route::get('/viewquery/{id}', [QueryController::class, 'viewquery'])->name('viewquery');
+        Route::get('/checkyourquery', [QueryController::class, 'checkyourquery'])->name('checkyourquery');
         Route::get('/teacherviewresults/{user_id}', [ResultController::class, 'teacherviewresults'])->name('teacherviewresults');
         Route::get('/pioneertermresults', [ResultController::class, 'pioneertermresults'])->name('pioneertermresults');
         Route::get('/premiumterm', [UserController::class, 'premiumterm'])->name('premiumterm');

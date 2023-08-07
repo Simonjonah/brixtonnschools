@@ -296,7 +296,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('web/checkresultterminal') }}" class="nav-link">
+                <a href="{{ url('web/checkresult') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Your Results</p>
                 </a>
@@ -426,7 +426,21 @@
               <li class="nav-item">
                 <a href="{{ url('web/pioneertermresults') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pioneer Term</p>
+                  <p>Pioneer Term Result</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ url('web/pensulatermresults') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pensulate Term Result</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ url('web/premiumtermresults') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Premium Term Result</p>
                 </a>
               </li>
             
@@ -434,32 +448,30 @@
           </li>
           
           
-          <li class="nav-header">ADMIMISSION</li>
-          <li class="nav-item">
-            <a href="{{ url('/web/admisionletter') }}" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Admission Letter</p>
-            </a>
-          </li>
-
-
-
+          
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Check Result
+                Query
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('web/checkresultterminal') }}" class="nav-link">
+                <a href="{{ url('web/checkyourquery') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Your Results</p>
+                  <p>Your Query</p>
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{ url('web/queryrepliedview') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> Query Replied</p>
+                </a>
+              </li>
+              
             </ul>
           </li>
           <li class="nav-item has-treeview">
